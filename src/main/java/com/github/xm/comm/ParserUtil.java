@@ -1,11 +1,9 @@
 package com.github.xm.comm;
 
-import cn.hutool.http.HttpUtil;
-import com.sun.jndi.toolkit.url.UrlUtil;
+import com.github.xm.parser.house.fdc.House;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

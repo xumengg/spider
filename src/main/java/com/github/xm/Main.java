@@ -22,9 +22,9 @@ public class Main {
 
 
     //设置爬虫线程数量与计算机核心数保持一直
-    public static int THEAD_COUNT = Runtime.getRuntime().availableProcessors();
+    public static int THREAD_COUNT = Runtime.getRuntime().availableProcessors();
 
-    public static Executor executor = Executors.newFixedThreadPool(THEAD_COUNT);
+    public static Executor executor = Executors.newFixedThreadPool(THREAD_COUNT);
 
     public static void main(String[] args) {
 
@@ -41,7 +41,7 @@ public class Main {
         ResultProcessor resultProcessor = new HouseResultProcessor();
 
 
-        for (int i=0;i<THEAD_COUNT;i++){
+        for (int i=0;i<THREAD_COUNT;i++){
             //实例化爬虫
             Spider spider=new Spider(urlProvider,contentParser,resultProcessor);
             executor.execute(spider);

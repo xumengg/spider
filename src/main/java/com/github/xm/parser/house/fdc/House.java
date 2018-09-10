@@ -1,4 +1,4 @@
-package com.github.xm.comm;
+package com.github.xm.parser.house.fdc;
 
 import lombok.Data;
 

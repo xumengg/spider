@@ -30,7 +30,7 @@ public class Spider implements ParseAble ,Runnable {
     @Override
     public void parse() {
         String url = urlProvider.getUrl();
-        log.info("第{}次爬取的url={}",count++,url);
+       // log.info("第{}次爬取的url={}",count++,url);
         String content = HttpUtil.get(url);
         Result result = contentParser.parse(content);
         result.getUrl().forEach(str->urlProvider.setUrl((String)str));

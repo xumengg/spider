@@ -1,12 +1,13 @@
 package com.github.xm.parser.house.loupan;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.xm.comm.House;
 import com.github.xm.parser.Result;
 import com.github.xm.parser.ResultProcessor;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-import java.util.List;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -47,16 +48,30 @@ public class HouseResultProcessor implements ResultProcessor {
      */
     class Worker implements Runnable{
 
+        private ObjectMapper objectMapper = new ObjectMapper();
+
         @Override
         public void run() {
-            try {
-                String html = queue.take();
-                System.out.println(html);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            while (true){
+                try {
+                    String html = queue.take();
+                    Document doc = Jsoup.parse(html);
+                    Elements elements = doc.select("#house_list > li");
+                    for(Element element:elements){
+
+                        String name = element.select("div h3 a").text().trim();
+                        String price = element.select("ul .price").text().trim();
+                        String location = element.select("div .add a").text().trim();
+
+                        House house = new House(name,price,location);
+                        System.out.println(objectMapper.writeValueAsString(house));
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 
 
