@@ -1,11 +1,12 @@
 package com.github.xm;
 
 import com.github.xm.parser.*;
+import com.github.xm.parser.house.HouseContentParser;
+import com.github.xm.parser.house.HouseResultProcessor;
 import com.github.xm.provider.InMemoryUrlProvider;
 import com.github.xm.provider.UrlProvider;
 
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -32,7 +33,7 @@ public class Main {
         urlProvider.setUrl(ROOT_URL);
 
         //创建爬取的内容解析器
-        ContentParse contentParse=new HouseContentParse();
+        ContentParser contentParser=new HouseContentParser();
 
         //创建爬取结果处理器
         ResultProcessor resultProcessor = new HouseResultProcessor();
@@ -40,7 +41,7 @@ public class Main {
 
         for (int i=0;i<THEAD_COUNT;i++){
             //实例化爬虫
-            Spider spider=new Spider(urlProvider,contentParse,resultProcessor);
+            Spider spider=new Spider(urlProvider,contentParser,resultProcessor);
             executor.execute(spider);
         }
 

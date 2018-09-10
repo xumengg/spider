@@ -7,6 +7,6 @@ import java.io.Serializable;
  * @create: 2018/9/7 22:37
  * @description:
  **/
-public interface ContentParse<T> {
+public interface ContentParser<T> {
     Result<T> parse(String content);
 }

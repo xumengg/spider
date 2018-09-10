@@ -1,9 +1,11 @@
-package com.github.xm.parser;
+package com.github.xm.parser.house;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.xm.comm.House;
 import com.github.xm.comm.ParserUtil;
+import com.github.xm.parser.ContentParser;
+import com.github.xm.parser.Result;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import java.util.List;
  * @create: 2018/9/7 22:45
  * @description:
  **/
-public class HouseContentParse implements ContentParse<List> {
+public class HouseContentParser implements ContentParser<List> {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 

@@ -12,20 +12,20 @@ public class Spider implements ParseAble ,Runnable {
 
     private UrlProvider urlProvider;
 
-    private ContentParse contentParse;
+    private ContentParser contentParser;
 
     private ResultProcessor resultProcessor;
 
-    public Spider(UrlProvider urlProvider,ContentParse contentParse,ResultProcessor resultProcessor) {
+    public Spider(UrlProvider urlProvider, ContentParser contentParse, ResultProcessor resultProcessor) {
         this.urlProvider = urlProvider;
-        this.contentParse = contentParse;
+        this.contentParser = contentParse;
         this.resultProcessor = resultProcessor;
     }
 
     @Override
     public void parse() {
         String content = HttpUtil.get(urlProvider.getUrl());
-        Result result = contentParse.parse(content);
+        Result result = contentParser.parse(content);
         result.getUrl().forEach(url->urlProvider.setUrl((String)url));
         resultProcessor.process(result);
     }

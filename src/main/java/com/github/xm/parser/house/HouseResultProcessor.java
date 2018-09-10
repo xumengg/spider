@@ -1,8 +1,10 @@
-package com.github.xm.parser;
+package com.github.xm.parser.house;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.xm.comm.House;
+import com.github.xm.parser.Result;
+import com.github.xm.parser.ResultProcessor;
 
 import java.util.List;
 
