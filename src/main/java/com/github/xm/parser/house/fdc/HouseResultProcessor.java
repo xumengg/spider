@@ -1,4 +1,4 @@
-package com.github.xm.parser.house;
+package com.github.xm.parser.house.fdc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

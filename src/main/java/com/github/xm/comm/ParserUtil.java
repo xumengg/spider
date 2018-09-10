@@ -21,7 +21,16 @@ public class ParserUtil {
      * @return
      */
     public static String getUrl(House house){
-       return Constant.BASE_URL + "?housebid=" + house.getHouseId();
+       return Constant.BASE_URL_FDC + "?housebid=" + house.getHouseId();
+    }
+
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public static String getUrl(String i){
+        return Constant.BASE_URL_loupan.replace("*",i);
     }
 
 

@@ -1,4 +1,4 @@
-package com.github.xm.parser.house;
+package com.github.xm.parser.house.fdc;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;

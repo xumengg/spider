@@ -16,8 +16,10 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <lombok.version>1.16.20</lombok.version>
-      <hutool.version>4.1.10</hutool.version>
+    <hutool.version>4.1.10</hutool.version>
     <jackson-databind.version>2.8.3</jackson-databind.version>
+    <logback.version>1.2.3</logback.version>
+    <jsoup.version>1.11.3</jsoup.version>
   </properties>
 
   <dependencies>
@@ -35,11 +37,25 @@
           <version>${hutool.version}</version>
       </dependency>
 
-
+    <!-- json工具类 -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${jackson-databind.version}</version>
+    </dependency>
+
+    <!-- 日志插件 -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+
+    <!--html解析工具类-->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>${jsoup.version}</version>
     </dependency>
 
   </dependencies>

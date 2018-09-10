@@ -17,6 +17,15 @@ public interface Constant {
      */
     int READY_CRAWL  = 1 ;
 
-    String BASE_URL="https://zjyjxc.wh.fdc.com.cn/portal/getScannedHouse2";
+    /**
+     *  fdc 数据接口
+     */
+    String BASE_URL_FDC="https://zjyjxc.wh.fdc.com.cn/portal/getScannedHouse2";
 
+
+    /**
+     *  loupan 数据接口
+     *  将 *号 替换为 要爬取的具体页号
+     */
+    String BASE_URL_loupan = "http://wh.loupan.com/xinfang/p*/?ajax=1";
 }
